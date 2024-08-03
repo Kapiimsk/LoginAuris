@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Login Console Auris</title>
+    <style>
+        body {
+            background-image: linear-gradient(45deg, black, black);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 65px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            margin: 5px 0;
+            width: calc(100% - 32px);
+        }
+        button {
+            background-color: black;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        #feedback {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>Login</h1>
+        <form>
+            <label for="user">Usuario</label>
+            <input type="text" id="user" name="user" placeholder="Usuario" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Senha" required>
+            <button type="submit">Enviar</button>
+            <div id="feedback"></div>
+        </form>
+    </section>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const user = document.querySelector('input[name=user]').value.toLowerCase();
+            const password = document.querySelector('input[name=password]').value.toLowerCase();
+            const feedback = document.getElementById('feedback');
+            if (user === 'rasen' && password === '31415926') {
+                feedback.textContent = 'mskapi3.14@gmail.com';
+                feedback.style.color = 'green';
+            } else {
+                feedback.textContent = 'Console Auris: usuário ou senha incorretos';
+                feedback.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
